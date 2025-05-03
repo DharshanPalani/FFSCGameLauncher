@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="GameLauncher.MainWindow"
+        Title="GameLauncher"
+        Width="600" Height="400"
+        Background="#1e1e1e"
+        Padding="30">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
+        <TextBlock Text="Friendly Friends Student Council"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="Orange"
+                   HorizontalAlignment="Center"/>
+
+        <Button Content="Start"
+                Width="200"
+                Height="50"
+                Background="Orange"
+                Foreground="White"
+                FontSize="18"
+                FontWeight="SemiBold"
+                CornerRadius="8"
+                Click="OnStartClicked"/>
+
+        <Button Content="Update"
+                Width="200"
+                Height="50"
+                Background="#FF9500"
+                Foreground="White"
+                FontSize="18"
+                FontWeight="SemiBold"
+                CornerRadius="8"/>
+    </StackPanel>
+</Window>
