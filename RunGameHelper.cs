@@ -1,51 +1,39 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Text.Json;
 
 namespace GameLauncher
 {
     public static class RunGameHelper
     {
-        public static void RunGameExecutable()
+        public static void RunGameExecutable(string gamePath)
         {
-            string configPath = ConfigHelper.GetConfigPath();
+            string exePath = Path.Combine(gamePath, "Friendly Friends Student Council.exe");
 
-            if (!File.Exists(configPath))
+            if (!File.Exists(exePath))
             {
+                Console.WriteLine("Executable not found at: " + exePath);
                 return;
             }
 
             try
             {
-                string configJson = File.ReadAllText(configPath);
-                var config = JsonSerializer.Deserialize<GameConfig>(configJson);
-
-                if (config == null || string.IsNullOrEmpty(config.GameInstallPath))
-                {
-                    // Handle the case where the config is invalid or missing
-                    return;
-                }
-
-                string folderPath = Path.GetDirectoryName(config.GameInstallPath)!;
-                string targetExePath = Path.Combine(folderPath, "Friendly Friends Student Council.exe");
-
-                if (!File.Exists(targetExePath))
-                {
-                    return;
-                }
-
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = targetExePath,
+                    FileName = exePath,
                     UseShellExecute = true
                 });
-
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading config or launching game: {ex.Message}");
+                Console.WriteLine($"Error launching game: {ex.Message}");
             }
+        }
+
+        public static bool CheckGameExecutableExists(string gamePath)
+        {
+            string exePath = Path.Combine(gamePath, "Friendly Friends Student Council.exe");
+            return File.Exists(exePath);
         }
     }
 }

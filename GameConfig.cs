@@ -6,6 +6,5 @@ namespace GameLauncher
     {
         public string GameInstallPath { get; set; } = "";
         public string GameVersion { get; set; } = "";
-        public DateTime LastLaunched { get; set; }
     }
 }
