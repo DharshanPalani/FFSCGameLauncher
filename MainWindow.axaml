@@ -24,7 +24,7 @@
                 FontSize="18"
                 FontWeight="SemiBold"
                 CornerRadius="8"
-                Click="OnStartClicked"/>
+                Click="StartButton_Click"/>
 
         <Button Content="Update"
                 Width="200"
